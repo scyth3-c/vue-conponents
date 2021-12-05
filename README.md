@@ -1,6 +1,6 @@
 # vue components
 
-## knock notes reescrito
+## rewritten knock-notes
 
 [**HEROKU PROJECT**](https://knocknotes.herokuapp.com/)
 
