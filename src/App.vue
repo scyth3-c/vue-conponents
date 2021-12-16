@@ -3,19 +3,22 @@
     
   <barra/>
  
-    <div class="container">
+  <div class="container">
       <div class="row">
-        <div class="col-md-4"><result/></div>
-        <div class="col-md-4"><show/></div>
-        <div class="col-md-4"><add/></div>
       
-      </div>
+      
+      <div v-show="widthMatch" class="col-md-6"> <result/> </div>
+      <div v-show="!widthMatch" class="col-md-4"> <result/> </div>
+      <div class="col-md-4"> <show/> </div>
+      <div class="col-md-4"> <add/> </div>
+
+
+
     </div>
-  
+  </div>
+
   </div>
 </template>
-
-
 
 <script>
 
@@ -30,6 +33,18 @@ export default {
       result,
       show,
       add
+  },
+  data(){
+    const widthQuery = matchMedia("(min-width: 768px) and (max-width:  991px )") 
+    return {
+        widthQuery: widthQuery,
+        widthMatch: widthQuery.matches
+    }
+  },
+  mounted(){
+    this.widthQuery.addEventListener('change',()=>{
+      this.widthMatch = this.widthQuery.matches;
+    });
   }
 }
 </script>
